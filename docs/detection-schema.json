@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SentinelCut Detection Object",
+  "description": "Authoritative schema for a single profanity detection. Person 1's AI pipeline must output arrays of this shape. Person 2's backend stores/serves this shape. Person 3's renderer consumes 'active' detections in this shape. Person 4's frontend renders and edits this shape.",
+  "type": "object",
+  "required": ["id", "word", "normalized", "language", "severity", "start", "end", "source", "confidence", "replacement", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique ID for this detection within the job, e.g. 'det_001'."
+    },
+    "word": {
+      "type": "string",
+      "description": "The word exactly as it appeared in the raw transcript, before normalization.",
+      "examples": ["fuuuuck", "bc", "m@darchod"]
+    },
+    "normalized": {
+      "type": "string",
+      "description": "The word after normalization (repeat-collapsing, leetspeak mapping, separator stripping) used for dictionary matching.",
+      "examples": ["fuck", "bc", "madarchod"]
+    },
+    "language": {
+      "type": "string",
+      "enum": ["english", "hindi", "hinglish_roman", "abbreviation"],
+      "description": "Which word list this match came from. Not the detected language of the sentence as a whole."
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "description": "Used for optional filtering in the timeline editor."
+    },
+    "start": {
+      "type": "number",
+      "description": "Start time in seconds, from word-level Whisper timestamps."
+    },
+    "end": {
+      "type": "number",
+      "description": "End time in seconds."
+    },
+    "source": {
+      "type": "string",
+      "enum": ["dictionary", "regex", "fuzzy", "custom", "manual"],
+      "description": "Which stage of the detection pipeline produced this match. 'custom' = user-supplied word list at upload. 'manual' = added by user in the timeline editor after AI processing."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "1.0 for exact dictionary matches; lower for fuzzy/regex matches. Manual additions default to 1.0."
+    },
+    "replacement": {
+      "type": "string",
+      "enum": ["beep", "mute"],
+      "description": "MVP supports beep and mute only. Custom sound / AI voice are post-MVP enum values to add later."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "removed", "added"],
+      "description": "'active' = will be censored on render. 'removed' = user deleted this detection via PATCH. 'added' = user manually created it via POST."
+    }
+  },
+  "example": {
+    "id": "det_001",
+    "word": "fuuuuck",
+    "normalized": "fuck",
+    "language": "english",
+    "severity": "high",
+    "start": 12.34,
+    "end": 12.81,
+    "source": "dictionary",
+    "confidence": 0.95,
+    "replacement": "beep",
+    "status": "active"
+  }
+}
