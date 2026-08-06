@@ -1,0 +1,100 @@
+# ===== Environment / Secrets =====
+.env
+.env.local
+.env.*.local
+.env.staging
+.env.production
+!.env.example
+!infra/env/*.example
+
+# ===== Node / Frontend (Next.js) =====
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.turbo/
+frontend/.vercel/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/.eslintcache
+*.tsbuildinfo
+next-env.d.ts
+
+# ===== Python / Backend + AI Pipeline =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/venv/
+backend/.venv/
+backend/env/
+ai-pipeline/venv/
+ai-pipeline/.venv/
+ai-pipeline/env/
+*.egg-info/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+ai-pipeline/notebooks/.ipynb_checkpoints/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# ===== Database =====
+*.sqlite3
+*.db
+database/*.dump
+
+# ===== AI models / large data (adjust as needed) =====
+ai-pipeline/sentinelcut_ai/data/embeddings/*.bin
+ai-pipeline/sentinelcut_ai/data/embeddings/*.npy
+*.pt
+*.onnx
+*.ckpt
+*.bin
+*.h5
+
+# ===== Media / test files (often large, don't commit) =====
+*.mp4
+*.mp3
+*.wav
+*.mov
+*.avi
+!frontend/public/assets/**
+
+# ===== Docker =====
+*.pid
+
+# ===== IDE / Editor =====
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Logs =====
+logs/
+*.log
+
+# ===== Misc =====
+.cache/
+dist/
+tmp/
+temp/
