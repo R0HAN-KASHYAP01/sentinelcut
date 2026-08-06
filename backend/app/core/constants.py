@@ -1,0 +1,2 @@
+ALLOWED_FILE_TYPES = {"mp4", "mp3", "wav"}
+MAX_FILE_SIZE_MB = 200
