@@ -1,26 +1,33 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-base: #FAFAFA;
+  --bg-surface: #FFFFFF;
+  --bg-surface-raised: #FFFFFF;
+  --text-primary: #111318;
+  --text-secondary: #5B6270;
+  --border-subtle: #E6E8EB;
+  --brand-primary: #6D5EF6;
+  --accent-teal: #14B8A6;
+  --accent-amber: #F59E0B;
+  --accent-rose: #F43F5E;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --bg-base: #0B0D10;
+  --bg-surface: #14171C;
+  --bg-surface-raised: #1B1F26;
+  --text-primary: #F1F2F4;
+  --text-secondary: #9AA1AC;
+  --border-subtle: #262B33;
+  --brand-primary: #8B7CFF;
+  --accent-teal: #2DD4BF;
+  --accent-amber: #FBBF24;
+  --accent-rose: #FB7185;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
 }
