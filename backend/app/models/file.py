@@ -18,6 +18,7 @@ class File(Base):
 
     original_filename = Column(String, nullable=False)
     storage_path = Column(String, nullable=False)
+    censored_storage_path = Column(String, nullable=True)
     file_type = Column(String, nullable=False)
 
     status = Column(String, nullable=False, default="uploaded")
