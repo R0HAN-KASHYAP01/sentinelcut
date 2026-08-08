@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     SUPABASE_URL: str
     SUPABASE_JWT_SECRET: str
     SUPABASE_SERVICE_KEY: str
+    REDIS_URL: str
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
