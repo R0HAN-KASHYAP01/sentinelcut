@@ -14,7 +14,10 @@ celery_app = Celery(
     "sentinelcut",
     broker=settings.REDIS_URL,
     backend=settings.REDIS_URL,
-    include=["app.workers.tasks.processing_task"],
+    include=[
+        "app.workers.tasks.processing_task",
+        "app.workers.tasks.regeneration_task",   # add this line
+    ],
 )
 
 celery_app.conf.update(

@@ -43,3 +43,7 @@ class DetectionResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class DetectionUpdate(BaseModel):
+    status: str  # "active" or "removed"

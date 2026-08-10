@@ -29,3 +29,12 @@ class DetectionRepository(BaseRepository[Detection]):
         for obj in objs:
             self.db.refresh(obj)
         return objs
+
+    def update_status(self, detection_id: UUID, status: str):
+        detection = self.get(detection_id)
+        if not detection:
+            return None
+        detection.status = status
+        self.db.commit()
+        self.db.refresh(detection)
+        return detection
