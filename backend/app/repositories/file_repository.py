@@ -25,3 +25,12 @@ class FileRepository(BaseRepository[File]):
         self.db.commit()
         self.db.refresh(file)
         return file
+
+    def get_recent_by_user(self, user_id: UUID, limit: int = 20):
+        return (
+            self.db.query(File)
+            .filter(File.user_id == user_id)
+            .order_by(File.created_at.desc())
+            .limit(limit)
+            .all()
+        )
