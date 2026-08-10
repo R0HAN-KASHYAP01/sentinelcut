@@ -1,0 +1,95 @@
+{
+  "गांडू": {
+    "canonical": "गांडू",
+    "language": "hindi",
+    "severity": "high",
+    "variants": [
+      "गांडू",
+      "गंडू",
+      "गान्डूं",
+      "गंदु",
+      "gandu"
+    ]
+  },
+  "चुटिया": {
+    "canonical": "चुटिया",
+    "language": "hindi",
+    "severity": "medium",
+    "variants": [
+      "चुटिया",
+      "chutiya",
+      "chutia"
+    ]
+  },
+  "नमर्द": {
+    "canonical": "नमर्द",
+    "language": "hindi",
+    "severity": "medium",
+    "variants": [
+      "नमर्द",
+      "ना मर्द",
+      "namard"
+    ]
+  },
+  "भोसरी": {"canonical": "भोसरी", "language": "hindi", "severity": "high", "variants": ["भूसरी", "भोसरी", "पूसरी", "bhosdi", "bhosri", "bhosri ke", "bhosdi ke"]},
+    
+  
+  "बहनचोद": {
+    "canonical": "बहनचोद",
+    "language": "hindi",
+    "severity": "high",
+    "variants": [
+      "बहनचोद",
+      "बहन चोद",
+      "behnchod",
+      "bhenchod",
+      "bc"
+    ]
+  },
+  "कमीना": {
+    "canonical": "कमीना",
+    "language": "hindi",
+    "severity": "medium",
+    "variants": [
+      "कमीना",
+      "कमीने",
+      "kamina"
+    ]
+  },
+  "साला": {
+    "canonical": "साला",
+    "language": "hindi",
+    "severity": "low",
+    "variants": [
+      "साला",
+      "साले",
+      "sala"
+    ]
+  },
+  "बेशरम": {
+    "canonical": "बेशरम",
+    "language": "hindi",
+    "severity": "medium",
+    "variants": [
+      "बेशरम",
+      "बेशराइम",
+      "besharam"
+    ]
+  },
+  "बेहया": {
+    "canonical": "बेहया",
+    "language": "hindi",
+    "severity": "medium",
+    "variants": [
+      "बेहया",
+      "बह्या",
+      "behaya"
+    ]
+  },
+  "fuck": {"canonical": "fuck", "language": "english", "severity": "high", "variants": ["fuck", "fuk", "fck", "f*ck", "fuuuck", "motherfucker", "mother fucker", "fucker", "fucking"]},
+  "bitch": {"canonical": "bitch", "language": "english", "severity": "high", "variants": ["bitch", "b*tch", "biatch"]},
+  "shit": {"canonical": "shit", "language": "english", "severity": "medium", "variants": ["shit", "sh*t", "shyt"]},
+  "asshole": {"canonical": "asshole", "language": "english", "severity": "medium", "variants": ["asshole", "a**hole"]},
+  "bastard": {"canonical": "bastard", "language": "english", "severity": "medium", "variants": ["bastard", "b*stard"]},
+    "goddamn": {"canonical": "goddamn", "language": "english", "severity": "medium", "variants": ["goddamn", "god damn", "goddammit"]},
+    "मादरचोद": {"canonical": "मादरचोद", "language": "hindi", "severity": "high", "variants": ["मादर चोद", "माधर चौट", "मादर चौद", "madarchod", "mc", "mata chot", "bhen ke lode", "behen ke lode"]}}

@@ -1,0 +1,84 @@
+[
+  {
+    "word": "motherfucker,",
+    "normalized": "motherfucker",
+    "canonical": "fuck",
+    "language": "english",
+    "severity": "high",
+    "start": 14.58,
+    "end": 14.88,
+    "source": "dictionary",
+    "confidence": 1.0,
+    "variants": [
+      "fuck",
+      "fuk",
+      "fck",
+      "f*ck",
+      "fuuuck",
+      "motherfucker",
+      "mother fucker",
+      "fucker",
+      "fucking"
+    ]
+  },
+  {
+    "word": "motherfucker.",
+    "normalized": "motherfucker",
+    "canonical": "fuck",
+    "language": "english",
+    "severity": "high",
+    "start": 28.22,
+    "end": 28.5,
+    "source": "dictionary",
+    "confidence": 1.0,
+    "variants": [
+      "fuck",
+      "fuk",
+      "fck",
+      "f*ck",
+      "fuuuck",
+      "motherfucker",
+      "mother fucker",
+      "fucker",
+      "fucking"
+    ]
+  },
+  {
+    "word": "Fucker",
+    "normalized": "fucker",
+    "canonical": "fuck",
+    "language": "english",
+    "severity": "high",
+    "start": 28.5,
+    "end": 28.84,
+    "source": "dictionary",
+    "confidence": 1.0,
+    "variants": [
+      "fuck",
+      "fuk",
+      "fck",
+      "f*ck",
+      "fuuuck",
+      "motherfucker",
+      "mother fucker",
+      "fucker",
+      "fucking"
+    ]
+  },
+  {
+    "word": "goddamn",
+    "normalized": "goddamn",
+    "canonical": "goddamn",
+    "language": "english",
+    "severity": "medium",
+    "start": 29.86,
+    "end": 30.28,
+    "source": "dictionary",
+    "confidence": 1.0,
+    "variants": [
+      "goddamn",
+      "god damn",
+      "goddammit"
+    ]
+  }
+]

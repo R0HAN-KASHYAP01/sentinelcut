@@ -1,0 +1,530 @@
+[
+  {
+    "word": "The",
+    "start": 0.0,
+    "end": 0.74,
+    "confidence": 0.7
+  },
+  {
+    "word": "prosecution",
+    "start": 0.74,
+    "end": 1.58,
+    "confidence": 0.99
+  },
+  {
+    "word": "is",
+    "start": 1.58,
+    "end": 3.6,
+    "confidence": 0.78
+  },
+  {
+    "word": "not",
+    "start": 3.6,
+    "end": 4.06,
+    "confidence": 0.91
+  },
+  {
+    "word": "going",
+    "start": 4.06,
+    "end": 4.28,
+    "confidence": 0.39
+  },
+  {
+    "word": "to",
+    "start": 4.28,
+    "end": 4.44,
+    "confidence": 0.99
+  },
+  {
+    "word": "get",
+    "start": 4.44,
+    "end": 4.62,
+    "confidence": 1.0
+  },
+  {
+    "word": "that",
+    "start": 4.62,
+    "end": 5.0,
+    "confidence": 0.99
+  },
+  {
+    "word": "man",
+    "start": 5.0,
+    "end": 5.34,
+    "confidence": 0.99
+  },
+  {
+    "word": "today.",
+    "start": 5.34,
+    "end": 6.44,
+    "confidence": 0.99
+  },
+  {
+    "word": "No.",
+    "start": 7.38,
+    "end": 7.84,
+    "confidence": 0.93
+  },
+  {
+    "word": "Because",
+    "start": 9.24,
+    "end": 9.58,
+    "confidence": 0.98
+  },
+  {
+    "word": "I'm",
+    "start": 9.58,
+    "end": 10.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "going",
+    "start": 10.2,
+    "end": 10.38,
+    "confidence": 0.68
+  },
+  {
+    "word": "to",
+    "start": 10.38,
+    "end": 10.54,
+    "confidence": 0.99
+  },
+  {
+    "word": "get",
+    "start": 10.54,
+    "end": 10.68,
+    "confidence": 1.0
+  },
+  {
+    "word": "him!",
+    "start": 10.68,
+    "end": 11.32,
+    "confidence": 0.92
+  },
+  {
+    "word": "My",
+    "start": 12.9,
+    "end": 13.34,
+    "confidence": 0.94
+  },
+  {
+    "word": "client,",
+    "start": 13.34,
+    "end": 14.16,
+    "confidence": 1.0
+  },
+  {
+    "word": "the",
+    "start": 15.08,
+    "end": 15.24,
+    "confidence": 0.89
+  },
+  {
+    "word": "Honorable",
+    "start": 15.24,
+    "end": 16.12,
+    "confidence": 0.71
+  },
+  {
+    "word": "Henry",
+    "start": 16.12,
+    "end": 16.88,
+    "confidence": 0.98
+  },
+  {
+    "word": "T.",
+    "start": 16.88,
+    "end": 17.56,
+    "confidence": 0.98
+  },
+  {
+    "word": "Fleming,",
+    "start": 17.84,
+    "end": 18.32,
+    "confidence": 0.98
+  },
+  {
+    "word": "should",
+    "start": 19.2,
+    "end": 19.36,
+    "confidence": 0.96
+  },
+  {
+    "word": "go",
+    "start": 19.36,
+    "end": 19.92,
+    "confidence": 1.0
+  },
+  {
+    "word": "right",
+    "start": 19.92,
+    "end": 20.44,
+    "confidence": 0.98
+  },
+  {
+    "word": "to",
+    "start": 20.44,
+    "end": 20.86,
+    "confidence": 0.95
+  },
+  {
+    "word": "fucking",
+    "start": 20.86,
+    "end": 21.48,
+    "confidence": 0.83
+  },
+  {
+    "word": "jail!",
+    "start": 21.48,
+    "end": 22.1,
+    "confidence": 0.98
+  },
+  {
+    "word": "The",
+    "start": 22.84,
+    "end": 23.12,
+    "confidence": 0.75
+  },
+  {
+    "word": "son",
+    "start": 23.12,
+    "end": 23.54,
+    "confidence": 0.98
+  },
+  {
+    "word": "of",
+    "start": 23.54,
+    "end": 23.78,
+    "confidence": 0.98
+  },
+  {
+    "word": "a",
+    "start": 23.78,
+    "end": 24.2,
+    "confidence": 0.99
+  },
+  {
+    "word": "bitch",
+    "start": 24.2,
+    "end": 24.54,
+    "confidence": 0.99
+  },
+  {
+    "word": "is",
+    "start": 24.54,
+    "end": 25.18,
+    "confidence": 0.95
+  },
+  {
+    "word": "guilty!",
+    "start": 25.18,
+    "end": 25.66,
+    "confidence": 1.0
+  },
+  {
+    "word": "That",
+    "start": 26.78,
+    "end": 27.28,
+    "confidence": 0.93
+  },
+  {
+    "word": "man",
+    "start": 27.28,
+    "end": 27.68,
+    "confidence": 0.97
+  },
+  {
+    "word": "is",
+    "start": 27.68,
+    "end": 28.36,
+    "confidence": 0.96
+  },
+  {
+    "word": "guilty!",
+    "start": 28.36,
+    "end": 28.6,
+    "confidence": 1.0
+  },
+  {
+    "word": "Stand",
+    "start": 30.0,
+    "end": 30.5,
+    "confidence": 0.27
+  },
+  {
+    "word": "there!",
+    "start": 30.5,
+    "end": 31.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "That",
+    "start": 31.44,
+    "end": 31.52,
+    "confidence": 0.73
+  },
+  {
+    "word": "man",
+    "start": 31.52,
+    "end": 31.96,
+    "confidence": 0.99
+  },
+  {
+    "word": "is",
+    "start": 31.96,
+    "end": 32.52,
+    "confidence": 0.91
+  },
+  {
+    "word": "a",
+    "start": 32.52,
+    "end": 32.9,
+    "confidence": 1.0
+  },
+  {
+    "word": "sly!",
+    "start": 32.9,
+    "end": 33.24,
+    "confidence": 0.6
+  },
+  {
+    "word": "He",
+    "start": 33.76,
+    "end": 34.36,
+    "confidence": 0.94
+  },
+  {
+    "word": "is",
+    "start": 34.36,
+    "end": 34.86,
+    "confidence": 0.99
+  },
+  {
+    "word": "a",
+    "start": 34.86,
+    "end": 35.26,
+    "confidence": 1.0
+  },
+  {
+    "word": "sly!",
+    "start": 35.26,
+    "end": 35.68,
+    "confidence": 0.97
+  },
+  {
+    "word": "If",
+    "start": 36.08,
+    "end": 36.32,
+    "confidence": 0.97
+  },
+  {
+    "word": "he's",
+    "start": 36.32,
+    "end": 36.7,
+    "confidence": 0.92
+  },
+  {
+    "word": "allowed",
+    "start": 36.7,
+    "end": 36.94,
+    "confidence": 0.99
+  },
+  {
+    "word": "to",
+    "start": 36.94,
+    "end": 37.2,
+    "confidence": 1.0
+  },
+  {
+    "word": "go",
+    "start": 37.2,
+    "end": 37.46,
+    "confidence": 1.0
+  },
+  {
+    "word": "free,",
+    "start": 37.46,
+    "end": 38.0,
+    "confidence": 1.0
+  },
+  {
+    "word": "then",
+    "start": 38.44,
+    "end": 38.5,
+    "confidence": 0.94
+  },
+  {
+    "word": "something",
+    "start": 38.5,
+    "end": 39.0,
+    "confidence": 0.99
+  },
+  {
+    "word": "really",
+    "start": 39.0,
+    "end": 39.94,
+    "confidence": 0.91
+  },
+  {
+    "word": "wrong",
+    "start": 39.94,
+    "end": 40.46,
+    "confidence": 0.98
+  },
+  {
+    "word": "is",
+    "start": 40.46,
+    "end": 40.74,
+    "confidence": 0.99
+  },
+  {
+    "word": "going",
+    "start": 40.74,
+    "end": 41.08,
+    "confidence": 0.97
+  },
+  {
+    "word": "on",
+    "start": 41.08,
+    "end": 41.3,
+    "confidence": 1.0
+  },
+  {
+    "word": "here.",
+    "start": 41.3,
+    "end": 41.3,
+    "confidence": 0.43
+  },
+  {
+    "word": "Mr.",
+    "start": 41.46,
+    "end": 41.72,
+    "confidence": 0.76
+  },
+  {
+    "word": "Kirkland,",
+    "start": 41.84,
+    "end": 42.1,
+    "confidence": 0.58
+  },
+  {
+    "word": "you",
+    "start": 42.3,
+    "end": 42.3,
+    "confidence": 0.99
+  },
+  {
+    "word": "are",
+    "start": 42.3,
+    "end": 42.5,
+    "confidence": 0.9
+  },
+  {
+    "word": "out",
+    "start": 42.5,
+    "end": 42.66,
+    "confidence": 0.99
+  },
+  {
+    "word": "of",
+    "start": 42.66,
+    "end": 42.84,
+    "confidence": 0.99
+  },
+  {
+    "word": "order!",
+    "start": 42.84,
+    "end": 42.92,
+    "confidence": 1.0
+  },
+  {
+    "word": "You're",
+    "start": 43.08,
+    "end": 43.46,
+    "confidence": 0.87
+  },
+  {
+    "word": "out",
+    "start": 43.46,
+    "end": 43.62,
+    "confidence": 0.99
+  },
+  {
+    "word": "of",
+    "start": 43.62,
+    "end": 43.84,
+    "confidence": 1.0
+  },
+  {
+    "word": "order!",
+    "start": 43.84,
+    "end": 44.1,
+    "confidence": 1.0
+  },
+  {
+    "word": "You're",
+    "start": 44.44,
+    "end": 44.9,
+    "confidence": 0.94
+  },
+  {
+    "word": "out",
+    "start": 44.9,
+    "end": 45.1,
+    "confidence": 1.0
+  },
+  {
+    "word": "of",
+    "start": 45.1,
+    "end": 45.3,
+    "confidence": 1.0
+  },
+  {
+    "word": "order!",
+    "start": 45.3,
+    "end": 45.48,
+    "confidence": 1.0
+  },
+  {
+    "word": "The",
+    "start": 45.8,
+    "end": 45.98,
+    "confidence": 0.99
+  },
+  {
+    "word": "whole",
+    "start": 45.98,
+    "end": 46.4,
+    "confidence": 1.0
+  },
+  {
+    "word": "trial",
+    "start": 46.4,
+    "end": 46.8,
+    "confidence": 0.99
+  },
+  {
+    "word": "is",
+    "start": 46.8,
+    "end": 47.12,
+    "confidence": 1.0
+  },
+  {
+    "word": "out",
+    "start": 47.12,
+    "end": 47.34,
+    "confidence": 1.0
+  },
+  {
+    "word": "of",
+    "start": 47.34,
+    "end": 47.52,
+    "confidence": 1.0
+  },
+  {
+    "word": "order!",
+    "start": 47.52,
+    "end": 47.52,
+    "confidence": 0.84
+  }
+]
