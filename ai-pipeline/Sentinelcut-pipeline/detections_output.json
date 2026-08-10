@@ -1,0 +1,91 @@
+[
+  {
+    "word": "Bhosri",
+    "normalized": "bhosri",
+    "canonical": "भोसरी",
+    "language": "hindi",
+    "severity": "high",
+    "start": 17.62,
+    "end": 17.96,
+    "source": "dictionary",
+    "confidence": 1.0,
+    "variants": [
+      "भूसरी",
+      "भोसरी",
+      "पूसरी",
+      "bhosdi",
+      "bhosri",
+      "bhosri ke",
+      "bhosdi ke"
+    ]
+  },
+  {
+    "word": "Bhosri",
+    "normalized": "bhosri",
+    "canonical": "भोसरी",
+    "language": "hindi",
+    "severity": "high",
+    "start": 38.2,
+    "end": 39.16,
+    "source": "dictionary",
+    "confidence": 1.0,
+    "variants": [
+      "भूसरी",
+      "भोसरी",
+      "पूसरी",
+      "bhosdi",
+      "bhosri",
+      "bhosri ke",
+      "bhosdi ke"
+    ]
+  },
+  {
+    "word": "Mata chot bhen ke lode",
+    "normalized": "mata chot bhen ke lode",
+    "canonical": "मादरचोद बहनचोद",
+    "language": "hinglish",
+    "severity": "high",
+    "start": 39.5,
+    "end": 40.98,
+    "source": "phrase",
+    "confidence": 1.0,
+    "variants": [
+      "mata chot bhen ke lode",
+      "maderchod behenchod lode",
+      "मादरचोद बहनचोद लोड़े"
+    ]
+  },
+  {
+    "word": "Machar ki jaat",
+    "normalized": "machar ki jaat",
+    "canonical": "मच्छर की जात",
+    "language": "hinglish",
+    "severity": "medium",
+    "start": 41.7,
+    "end": 42.92,
+    "source": "phrase",
+    "confidence": 1.0,
+    "variants": [
+      "machar ki jaat",
+      "मच्छर की जात"
+    ]
+  },
+  {
+    "word": "गान्डू",
+    "normalized": "गान्डू",
+    "canonical": "गांडू",
+    "language": "hindi",
+    "severity": "high",
+    "start": 42.92,
+    "end": 43.48,
+    "source": "fuzzy",
+    "confidence": 0.92,
+    "variants": [
+      "गांडू",
+      "गंडू",
+      "गान्डूं",
+      "गंदु",
+      "gandu"
+    ]
+  }
+]

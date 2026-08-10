@@ -1,0 +1,722 @@
+[
+  {
+    "word": "गुणाल,",
+    "start": 1.16,
+    "end": 1.64,
+    "confidence": 0.7
+  },
+  {
+    "word": "तेल",
+    "start": 1.78,
+    "end": 1.98,
+    "confidence": 0.52
+  },
+  {
+    "word": "आस",
+    "start": 1.98,
+    "end": 2.04,
+    "confidence": 0.3
+  },
+  {
+    "word": "वार्ट",
+    "start": 2.04,
+    "end": 2.24,
+    "confidence": 0.52
+  },
+  {
+    "word": "योसेल्फ.",
+    "start": 2.24,
+    "end": 2.94,
+    "confidence": 0.58
+  },
+  {
+    "word": "सर्व,",
+    "start": 3.12,
+    "end": 3.6,
+    "confidence": 0.69
+  },
+  {
+    "word": "मैं",
+    "start": 3.6,
+    "end": 4.02,
+    "confidence": 0.91
+  },
+  {
+    "word": "एक",
+    "start": 4.02,
+    "end": 4.26,
+    "confidence": 0.95
+  },
+  {
+    "word": "आक्टर",
+    "start": 4.26,
+    "end": 4.54,
+    "confidence": 0.68
+  },
+  {
+    "word": "हूँ.",
+    "start": 4.54,
+    "end": 4.96,
+    "confidence": 0.79
+  },
+  {
+    "word": "मैं",
+    "start": 5.04,
+    "end": 5.28,
+    "confidence": 0.97
+  },
+  {
+    "word": "फिल्मों",
+    "start": 5.28,
+    "end": 5.64,
+    "confidence": 0.85
+  },
+  {
+    "word": "में",
+    "start": 5.64,
+    "end": 5.68,
+    "confidence": 0.84
+  },
+  {
+    "word": "काम",
+    "start": 5.68,
+    "end": 5.9,
+    "confidence": 0.89
+  },
+  {
+    "word": "करता",
+    "start": 5.9,
+    "end": 6.22,
+    "confidence": 0.88
+  },
+  {
+    "word": "हूँ.",
+    "start": 6.22,
+    "end": 6.22,
+    "confidence": 0.8
+  },
+  {
+    "word": "अच्छा,",
+    "start": 7.02,
+    "end": 7.5,
+    "confidence": 0.91
+  },
+  {
+    "word": "रणवीजे",
+    "start": 7.58,
+    "end": 7.96,
+    "confidence": 0.76
+  },
+  {
+    "word": "की",
+    "start": 7.96,
+    "end": 8.1,
+    "confidence": 0.8
+  },
+  {
+    "word": "तरह?",
+    "start": 8.1,
+    "end": 8.34,
+    "confidence": 0.74
+  },
+  {
+    "word": "नहीं",
+    "start": 8.5,
+    "end": 8.72,
+    "confidence": 0.94
+  },
+  {
+    "word": "सर्व,",
+    "start": 8.72,
+    "end": 9.12,
+    "confidence": 0.86
+  },
+  {
+    "word": "इम",
+    "start": 9.14,
+    "end": 9.48,
+    "confidence": 0.81
+  },
+  {
+    "word": "की",
+    "start": 9.48,
+    "end": 9.62,
+    "confidence": 0.79
+  },
+  {
+    "word": "तरह",
+    "start": 9.62,
+    "end": 9.88,
+    "confidence": 0.98
+  },
+  {
+    "word": "नहीं.",
+    "start": 9.88,
+    "end": 10.34,
+    "confidence": 0.98
+  },
+  {
+    "word": "मैं",
+    "start": 10.88,
+    "end": 11.36,
+    "confidence": 0.98
+  },
+  {
+    "word": "तोड़े",
+    "start": 11.36,
+    "end": 11.6,
+    "confidence": 0.83
+  },
+  {
+    "word": "मीनिंगफूल",
+    "start": 11.6,
+    "end": 12.08,
+    "confidence": 0.67
+  },
+  {
+    "word": "रोल",
+    "start": 12.08,
+    "end": 12.18,
+    "confidence": 0.83
+  },
+  {
+    "word": "कर",
+    "start": 12.18,
+    "end": 12.42,
+    "confidence": 0.3
+  },
+  {
+    "word": "लेता",
+    "start": 12.42,
+    "end": 12.7,
+    "confidence": 0.86
+  },
+  {
+    "word": "हूँ.",
+    "start": 12.7,
+    "end": 12.98,
+    "confidence": 0.93
+  },
+  {
+    "word": "लास्ट",
+    "start": 13.82,
+    "end": 14.28,
+    "confidence": 0.79
+  },
+  {
+    "word": "फिल्म",
+    "start": 14.28,
+    "end": 14.34,
+    "confidence": 0.8
+  },
+  {
+    "word": "कौनसी",
+    "start": 14.34,
+    "end": 14.62,
+    "confidence": 0.66
+  },
+  {
+    "word": "हाई",
+    "start": 14.62,
+    "end": 14.8,
+    "confidence": 0.75
+  },
+  {
+    "word": "थी",
+    "start": 14.8,
+    "end": 14.92,
+    "confidence": 0.79
+  },
+  {
+    "word": "तेरी?",
+    "start": 14.92,
+    "end": 15.22,
+    "confidence": 0.88
+  },
+  {
+    "word": "Sir",
+    "start": 15.22,
+    "end": 15.54,
+    "confidence": 0.46
+  },
+  {
+    "word": "Delhi",
+    "start": 15.54,
+    "end": 15.86,
+    "confidence": 0.48
+  },
+  {
+    "word": "belly",
+    "start": 15.86,
+    "end": 16.2,
+    "confidence": 0.4
+  },
+  {
+    "word": "Delhi",
+    "start": 16.2,
+    "end": 16.66,
+    "confidence": 0.56
+  },
+  {
+    "word": "belly?",
+    "start": 16.66,
+    "end": 17.18,
+    "confidence": 0.97
+  },
+  {
+    "word": "Bhosri",
+    "start": 17.62,
+    "end": 17.96,
+    "confidence": 0.54
+  },
+  {
+    "word": "ke?",
+    "start": 17.96,
+    "end": 18.24,
+    "confidence": 0.66
+  },
+  {
+    "word": "D",
+    "start": 18.7,
+    "end": 18.94,
+    "confidence": 0.29
+  },
+  {
+    "word": ".K",
+    "start": 18.94,
+    "end": 19.02,
+    "confidence": 0.59
+  },
+  {
+    "word": ".Boss",
+    "start": 19.02,
+    "end": 19.16,
+    "confidence": 0.37
+  },
+  {
+    "word": "d",
+    "start": 19.16,
+    "end": 19.16,
+    "confidence": 0.02
+  },
+  {
+    "word": ".k",
+    "start": 19.16,
+    "end": 19.46,
+    "confidence": 0.75
+  },
+  {
+    "word": ".boss",
+    "start": 19.46,
+    "end": 19.64,
+    "confidence": 0.81
+  },
+  {
+    "word": "wale",
+    "start": 19.64,
+    "end": 19.84,
+    "confidence": 0.66
+  },
+  {
+    "word": "gaana",
+    "start": 19.84,
+    "end": 20.06,
+    "confidence": 0.7
+  },
+  {
+    "word": "me",
+    "start": 20.06,
+    "end": 20.2,
+    "confidence": 0.42
+  },
+  {
+    "word": "tum",
+    "start": 20.2,
+    "end": 20.3,
+    "confidence": 0.49
+  },
+  {
+    "word": "Nangaraj",
+    "start": 20.3,
+    "end": 20.8,
+    "confidence": 0.6
+  },
+  {
+    "word": "karte",
+    "start": 20.8,
+    "end": 21.06,
+    "confidence": 0.68
+  },
+  {
+    "word": "ho",
+    "start": 21.06,
+    "end": 21.26,
+    "confidence": 0.64
+  },
+  {
+    "word": "Aur",
+    "start": 21.26,
+    "end": 21.64,
+    "confidence": 0.21
+  },
+  {
+    "word": "usse",
+    "start": 21.64,
+    "end": 21.86,
+    "confidence": 0.93
+  },
+  {
+    "word": "meaningful",
+    "start": 21.86,
+    "end": 22.3,
+    "confidence": 0.65
+  },
+  {
+    "word": "role",
+    "start": 22.3,
+    "end": 22.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "kate",
+    "start": 22.5,
+    "end": 22.76,
+    "confidence": 0.39
+  },
+  {
+    "word": "ho",
+    "start": 22.76,
+    "end": 23.3,
+    "confidence": 0.99
+  },
+  {
+    "word": "Wo",
+    "start": 23.3,
+    "end": 23.94,
+    "confidence": 0.02
+  },
+  {
+    "word": "meaningful",
+    "start": 23.94,
+    "end": 24.36,
+    "confidence": 0.6
+  },
+  {
+    "word": "nahi",
+    "start": 24.36,
+    "end": 24.6,
+    "confidence": 0.85
+  },
+  {
+    "word": "wo",
+    "start": 24.6,
+    "end": 24.76,
+    "confidence": 0.33
+  },
+  {
+    "word": "double",
+    "start": 24.76,
+    "end": 25.02,
+    "confidence": 0.79
+  },
+  {
+    "word": "meaningful",
+    "start": 25.02,
+    "end": 25.38,
+    "confidence": 0.96
+  },
+  {
+    "word": "role",
+    "start": 25.38,
+    "end": 25.64,
+    "confidence": 0.97
+  },
+  {
+    "word": "tha",
+    "start": 25.64,
+    "end": 26.02,
+    "confidence": 1.0
+  },
+  {
+    "word": "Sharam",
+    "start": 26.02,
+    "end": 26.78,
+    "confidence": 0.34
+  },
+  {
+    "word": "nahi",
+    "start": 26.78,
+    "end": 26.9,
+    "confidence": 0.95
+  },
+  {
+    "word": "aayi",
+    "start": 26.9,
+    "end": 27.1,
+    "confidence": 0.77
+  },
+  {
+    "word": "tujhe?",
+    "start": 27.1,
+    "end": 27.37,
+    "confidence": 0.78
+  },
+  {
+    "word": "Aise",
+    "start": 27.88,
+    "end": 28.12,
+    "confidence": 0.9
+  },
+  {
+    "word": "gandi",
+    "start": 28.12,
+    "end": 28.52,
+    "confidence": 0.69
+  },
+  {
+    "word": "gandi",
+    "start": 28.52,
+    "end": 28.78,
+    "confidence": 0.67
+  },
+  {
+    "word": "gaaliyon",
+    "start": 28.78,
+    "end": 29.06,
+    "confidence": 0.73
+  },
+  {
+    "word": "wale",
+    "start": 29.06,
+    "end": 29.28,
+    "confidence": 0.98
+  },
+  {
+    "word": "gaane",
+    "start": 29.28,
+    "end": 29.54,
+    "confidence": 0.94
+  },
+  {
+    "word": "kaake?",
+    "start": 29.54,
+    "end": 30.04,
+    "confidence": 0.37
+  },
+  {
+    "word": "No",
+    "start": 30.28,
+    "end": 30.34,
+    "confidence": 0.3
+  },
+  {
+    "word": "sir",
+    "start": 30.34,
+    "end": 30.54,
+    "confidence": 0.71
+  },
+  {
+    "word": "wo",
+    "start": 30.54,
+    "end": 31.04,
+    "confidence": 0.79
+  },
+  {
+    "word": "actually",
+    "start": 31.04,
+    "end": 31.38,
+    "confidence": 0.24
+  },
+  {
+    "word": "CHOP!",
+    "start": 31.98,
+    "end": 32.52,
+    "confidence": 0.06
+  },
+  {
+    "word": "Petal",
+    "start": 32.86,
+    "end": 33.24,
+    "confidence": 0.33
+  },
+  {
+    "word": "checks!",
+    "start": 33.24,
+    "end": 33.64,
+    "confidence": 0.17
+  },
+  {
+    "word": "Mere",
+    "start": 34.56,
+    "end": 34.72,
+    "confidence": 0.85
+  },
+  {
+    "word": "show",
+    "start": 34.72,
+    "end": 34.98,
+    "confidence": 0.73
+  },
+  {
+    "word": "pe",
+    "start": 34.98,
+    "end": 35.14,
+    "confidence": 0.92
+  },
+  {
+    "word": "gaaliyon",
+    "start": 35.14,
+    "end": 35.56,
+    "confidence": 0.99
+  },
+  {
+    "word": "se",
+    "start": 35.56,
+    "end": 35.68,
+    "confidence": 0.99
+  },
+  {
+    "word": "related",
+    "start": 35.68,
+    "end": 36.1,
+    "confidence": 0.94
+  },
+  {
+    "word": "kisi",
+    "start": 36.1,
+    "end": 36.4,
+    "confidence": 0.86
+  },
+  {
+    "word": "bhi",
+    "start": 36.4,
+    "end": 36.54,
+    "confidence": 0.88
+  },
+  {
+    "word": "cheech",
+    "start": 36.54,
+    "end": 36.68,
+    "confidence": 0.71
+  },
+  {
+    "word": "ke",
+    "start": 36.68,
+    "end": 36.86,
+    "confidence": 0.94
+  },
+  {
+    "word": "liye",
+    "start": 36.86,
+    "end": 36.96,
+    "confidence": 0.98
+  },
+  {
+    "word": "koi",
+    "start": 36.96,
+    "end": 37.22,
+    "confidence": 0.9
+  },
+  {
+    "word": "jaga",
+    "start": 37.22,
+    "end": 37.5,
+    "confidence": 0.51
+  },
+  {
+    "word": "nahi",
+    "start": 37.5,
+    "end": 38.2,
+    "confidence": 0.93
+  },
+  {
+    "word": "hai",
+    "start": 38.2,
+    "end": 38.2,
+    "confidence": 0.85
+  },
+  {
+    "word": "Bhosri",
+    "start": 38.2,
+    "end": 39.16,
+    "confidence": 0.81
+  },
+  {
+    "word": "ke?",
+    "start": 39.16,
+    "end": 39.34,
+    "confidence": 0.98
+  },
+  {
+    "word": "Mata",
+    "start": 39.5,
+    "end": 39.76,
+    "confidence": 0.46
+  },
+  {
+    "word": "chot",
+    "start": 39.76,
+    "end": 40.08,
+    "confidence": 0.5
+  },
+  {
+    "word": "bhen",
+    "start": 40.08,
+    "end": 40.38,
+    "confidence": 0.6
+  },
+  {
+    "word": "ke",
+    "start": 40.38,
+    "end": 40.58,
+    "confidence": 0.52
+  },
+  {
+    "word": "lode",
+    "start": 40.58,
+    "end": 40.98,
+    "confidence": 0.31
+  },
+  {
+    "word": "Machar",
+    "start": 41.7,
+    "end": 42.24,
+    "confidence": 0.35
+  },
+  {
+    "word": "ki",
+    "start": 42.24,
+    "end": 42.4,
+    "confidence": 0.88
+  },
+  {
+    "word": "jaat",
+    "start": 42.4,
+    "end": 42.92,
+    "confidence": 0.73
+  },
+  {
+    "word": "गान्डू",
+    "start": 42.92,
+    "end": 43.48,
+    "confidence": 0.7
+  },
+  {
+    "word": "माखी",
+    "start": 43.48,
+    "end": 43.92,
+    "confidence": 0.54
+  },
+  {
+    "word": "चूट",
+    "start": 43.92,
+    "end": 44.22,
+    "confidence": 0.67
+  },
+  {
+    "word": "तेइट",
+    "start": 44.22,
+    "end": 44.58,
+    "confidence": 0.48
+  }
+]
