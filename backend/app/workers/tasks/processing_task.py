@@ -11,8 +11,6 @@ production-shaped already, so swapping the mock for the real pipeline in
 Step 12 requires no changes to this file beyond that one substitution.
 """
 
-import time
-
 from app.workers.celery_app import celery_app
 from app.db.session import SessionLocal
 from app.repositories.job_repository import JobRepository
@@ -63,16 +61,25 @@ def process_file_job(job_id: str):
 
         job = job_repo.get(job_id)
         job_repo.update_status(job_id, "processing")
+        file = file_repo.get(job.file_id)
 
-        # --- PLACEHOLDER (Step 12 will replace this block) ---
-        # from sentinelcut_ai.pipeline.processing_pipeline import run_pipeline
-        # raw_detections = run_pipeline(file_path)
-        time.sleep(1)
-        ingest_detections(db, job.file_id, MOCK_DETECTIONS)
-        # --- END PLACEHOLDER ---
+        # --- Step 12: real AI pipeline call ---
+        from sentinelcut_ai.pipeline.processing_pipeline import process_video
+
+        try:
+            raw_detections = process_video(file.storage_path)
+        except FileNotFoundError as e:
+            job_repo.update_status(job_id, "failed", error_message=str(e))
+            raise
+        except RuntimeError as e:
+            # transcription failed (bad/corrupt media, unsupported codec, etc.)
+            job_repo.update_status(job_id, "failed", error_message=str(e))
+            raise
+
+        ingest_detections(db, job.file_id, raw_detections)
+        # --- End Step 12 ---
 
         # --- Step 8: FFmpeg/PyDub censorship ---
-        file = file_repo.get(job.file_id)
         detections = detection_repo.get_by_file_id(job.file_id)
         detection_dicts = [
             {"start": d.start, "end": d.end} for d in detections
