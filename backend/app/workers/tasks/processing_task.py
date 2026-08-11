@@ -4,51 +4,30 @@
 Orchestrates the full AI pipeline call for a given job (System Architecture
 Section 5 / Folder Structure rationale).
 
-MOCK_DETECTIONS is a PLACEHOLDER standing in for P1's real Whisper +
-detection pipeline output — real integration happens in Step 12. Everything
-downstream of detection (validation, DB writes, censorship) is real and
-production-shaped already, so swapping the mock for the real pipeline in
-Step 12 requires no changes to this file beyond that one substitution.
+Step 12: MOCK_DETECTIONS removed — now calls P1's real Whisper + detection
+pipeline (ai-pipeline/sentinelcut_ai/pipeline/processing_pipeline.py).
+Everything downstream (validation, DB writes, censorship) is unchanged from
+the mock-data version, since it was built against the locked contract from
+day one.
 """
+
+import os
+import tempfile
+
+from sentinelcut_ai.pipeline.processing_pipeline import process_video
 
 from app.workers.celery_app import celery_app
 from app.db.session import SessionLocal
+from app.config import settings
 from app.repositories.job_repository import JobRepository
 from app.repositories.file_repository import FileRepository
 from app.repositories.detection_repository import DetectionRepository
 from app.services.detection_ingest_service import ingest_detections
 from app.services.audio_censorship_service import censor_file
 
-# Mock detections standing in for P1's real pipeline output, matching the
-# exact demo file spec from MVP Scope §5: one English + one Hindi/Hinglish
-# sentence, each profane, including one stretched spelling (fuuuuck) and
-# one abbreviation (bc). Remove once Step 12 wires in the real pipeline.
-MOCK_DETECTIONS = [
-    {
-        "word": "fuuuuck",
-        "normalized": "fuck",
-        "canonical": "fuck",
-        "language": "english",
-        "severity": "high",
-        "start": 12.34,
-        "end": 12.81,
-        "source": "dictionary",
-        "confidence": 0.95,
-        "variants": ["fuuuuck", "f*ck", "f.u.c.k"],
-    },
-    {
-        "word": "bc",
-        "normalized": "bc",
-        "canonical": "behen chod",
-        "language": "hinglish_abbrev",
-        "severity": "high",
-        "start": 20.10,
-        "end": 20.35,
-        "source": "dictionary",
-        "confidence": 0.90,
-        "variants": ["bc", "b.c", "bc."],
-    },
-]
+from supabase import create_client
+
+supabase = create_client(settings.SUPABASE_URL, settings.SUPABASE_SERVICE_KEY)
 
 
 @celery_app.task(name="process_file_job")
@@ -61,28 +40,33 @@ def process_file_job(job_id: str):
 
         job = job_repo.get(job_id)
         job_repo.update_status(job_id, "processing")
+
         file = file_repo.get(job.file_id)
 
-        # --- Step 12: real AI pipeline call ---
-        from sentinelcut_ai.pipeline.processing_pipeline import process_video
+        # --- Step 12: real pipeline call ---
+        # Download original to a local temp path — process_video() needs a
+        # real file on disk (faster-whisper reads via ffmpeg internally).
+        ext = file.file_type.lower()
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            local_path = os.path.join(tmp_dir, f"input.{ext}")
+            file_bytes = supabase.storage.from_("uploads").download(file.storage_path)
+            with open(local_path, "wb") as f:
+                f.write(file_bytes)
 
-        try:
-            raw_detections = process_video(file.storage_path)
-        except FileNotFoundError as e:
-            job_repo.update_status(job_id, "failed", error_message=str(e))
-            raise
-        except RuntimeError as e:
-            # transcription failed (bad/corrupt media, unsupported codec, etc.)
-            job_repo.update_status(job_id, "failed", error_message=str(e))
-            raise
+            raw_detections = process_video(
+                local_path,
+                custom_words=None,   # TODO: wire in custom_words table lookup later
+                model_size="small",  # "medium" recommended for Hindi/Hinglish accuracy
+                language=None,       # auto-detect
+            )
+        # --- end pipeline call ---
 
         ingest_detections(db, job.file_id, raw_detections)
-        # --- End Step 12 ---
 
-        # --- Step 8: FFmpeg/PyDub censorship ---
+        # --- Censorship (unchanged from Step 8) ---
         detections = detection_repo.get_by_file_id(job.file_id)
         detection_dicts = [
-            {"start": d.start, "end": d.end} for d in detections
+            {"start": d.start, "end": d.end} for d in detections if d.status == "active"
         ]
 
         censored_path = censor_file(
@@ -92,10 +76,15 @@ def process_file_job(job_id: str):
             detections=detection_dicts,
         )
         file_repo.update_censorship_result(file.id, censored_path, status="done")
-        # --- End Step 8 ---
+        # --- End censorship ---
 
         job_repo.update_status(job_id, "done")
-        return {"job_id": job_id, "status": "done", "censored_path": censored_path}
+        return {
+            "job_id": job_id,
+            "status": "done",
+            "censored_path": censored_path,
+            "detections_found": len(raw_detections),
+        }
 
     except Exception as e:
         job_repo.update_status(job_id, "failed", error_message=str(e))

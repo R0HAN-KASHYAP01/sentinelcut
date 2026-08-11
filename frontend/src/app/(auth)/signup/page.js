@@ -1,5 +1,7 @@
 'use client';
 
+
+// frontend/src/app/(auth)/signup/page.js
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase-client';

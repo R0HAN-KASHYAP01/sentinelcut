@@ -1,22 +1,23 @@
 'use client';
 
 import React, { useState } from 'react';
-// Replaced next/navigation with a simple state to handle routing for the preview environment
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { api } from '@/lib/api-client';
 
 export default function UploadPage() {
-  // const router = useRouter();
+  const router = useRouter();
   const [detectionMode, setDetectionMode] = useState('automatic');
   const [outputMode, setOutputMode] = useState('beep');
   const [isDragging, setIsDragging] = useState(false);
-  
-  // NEW STATE: Track the selected file and upload status
+
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState('');
 
   const handleFileSelect = (e) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);
+      setUploadError('');
     }
   };
 
@@ -27,29 +28,21 @@ export default function UploadPage() {
     }
 
     setIsUploading(true);
+    setUploadError('');
     try {
-      // 1. Prepare FormData for file upload
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('original_filename', file.name);
 
-      // UNCOMMENT THIS WHEN BACKEND IS READY
-      // const uploadRes = await api.post('/files/upload', formData);
-      
-      // 2. Start Processing Job
-      // await api.post(`/files/${uploadRes.file_id}/process`, {
-      //   detection_mode: detectionMode,
-      //   replacement_mode: outputMode,
-      //   custom_words: [],
-      // });
+      // Uploading immediately creates the File row AND queues the Celery
+      // processing job on the backend — there is no separate "start
+      // processing" call. detectionMode/outputMode aren't sent because the
+      // backend doesn't support per-upload config yet (beep-only for MVP).
+      const uploadedFile = await api.post('/files/upload', formData);
 
-      console.log('Successfully captured file:', file.name);
-      alert("File upload simulation complete! In a real app, it would now route to the processing status page.");
-      
-      // router.push(`/files/${uploadRes.file_id}/processing`);
+      router.push(`/files/${uploadedFile.id}/processing`);
     } catch (error) {
       console.error("Upload failed", error);
-      alert(`Upload failed: ${error.message}`);
+      setUploadError(error.message || 'Upload failed. Please try again.');
     } finally {
       setIsUploading(false);
     }

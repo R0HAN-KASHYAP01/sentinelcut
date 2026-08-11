@@ -1,8 +1,9 @@
-from fastapi import APIRouter, UploadFile, File as FastAPIFile, Depends
+from fastapi import APIRouter, UploadFile, HTTPException, File as FastAPIFile, Depends
 from app.api.deps.auth_deps import get_current_user
 from app.db.session import get_db
 from app.services.file_service import FileService
 from app.schemas.file_schema import FileResponse
+from app.repositories.file_repository import FileRepository
 from app.workers.tasks.regeneration_task import regenerate_censored_file
 from uuid import UUID
 
@@ -26,3 +27,15 @@ def recensor_file(
 ):
     regenerate_censored_file.delay(str(file_id))
     return {"file_id": str(file_id), "status": "queued"}
+
+@router.get("/{file_id}", response_model=FileResponse)
+def get_file(
+    file_id: UUID,
+    current_user=Depends(get_current_user),
+    db=Depends(get_db),
+):
+    file_repo = FileRepository(db)
+    file = file_repo.get(file_id)
+    if not file:
+        raise HTTPException(404, "File not found")
+    return file
