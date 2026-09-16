@@ -39,3 +39,14 @@ def get_file(
     if not file:
         raise HTTPException(404, "File not found")
     return file
+
+
+@router.delete("/{file_id}")
+def delete_file(
+    file_id: UUID,
+    current_user=Depends(get_current_user),
+    db=Depends(get_db),
+):
+    service = FileService(db)
+    service.delete_file(file_id, current_user.id)
+    return {"file_id": str(file_id), "deleted": True}

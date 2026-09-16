@@ -25,10 +25,34 @@ function formatDate(iso) {
   });
 }
 
+function TrashIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M3 6h18" />
+      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+      <path d="M10 11v6" />
+      <path d="M14 11v6" />
+    </svg>
+  );
+}
+
 export default function DashboardPage() {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [confirmingId, setConfirmingId] = useState(null);
+  const [deletingId, setDeletingId] = useState(null);
+  const [deleteError, setDeleteError] = useState('');
 
   useEffect(() => {
     let cancelled = false;
@@ -59,6 +83,37 @@ export default function DashboardPage() {
     return `/files/${file.id}/processing`;
   };
 
+  async function handleDelete(e, file) {
+    // The button lives inside a <Link>, so stop the click from
+    // triggering navigation.
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (confirmingId !== file.id) {
+      setConfirmingId(file.id);
+      setDeleteError('');
+      return;
+    }
+
+    setDeletingId(file.id);
+    setDeleteError('');
+    try {
+      await api.delete(`/files/${file.id}`);
+      setFiles((prev) => prev.filter((f) => f.id !== file.id));
+    } catch (err) {
+      setDeleteError(err.message || 'Failed to delete file.');
+    } finally {
+      setDeletingId(null);
+      setConfirmingId(null);
+    }
+  }
+
+  function handleCancelConfirm(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setConfirmingId(null);
+  }
+
   return (
     <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#0B0D10] p-6 sm:p-10 font-sans">
       <div className="max-w-4xl mx-auto">
@@ -78,6 +133,12 @@ export default function DashboardPage() {
         {error && (
           <div className="mb-4 p-3 rounded-lg bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 text-sm">
             {error}
+          </div>
+        )}
+
+        {deleteError && (
+          <div className="mb-4 p-3 rounded-lg bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 text-sm">
+            {deleteError}
           </div>
         )}
 
@@ -106,13 +167,46 @@ export default function DashboardPage() {
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">{formatDate(file.created_at)}</p>
                 </div>
-                <span
-                  className={`ml-4 shrink-0 text-xs font-medium px-2.5 py-1 rounded-full ${
-                    STATUS_STYLES[file.status] || STATUS_STYLES.uploaded
-                  }`}
-                >
-                  {STATUS_LABELS[file.status] || file.status}
-                </span>
+
+                <div className="ml-4 flex shrink-0 items-center gap-2">
+                  <span
+                    className={`text-xs font-medium px-2.5 py-1 rounded-full ${
+                      STATUS_STYLES[file.status] || STATUS_STYLES.uploaded
+                    }`}
+                  >
+                    {STATUS_LABELS[file.status] || file.status}
+                  </span>
+
+                  {confirmingId === file.id ? (
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={(e) => handleDelete(e, file)}
+                        disabled={deletingId === file.id}
+                        className="text-xs font-medium px-2.5 py-1 rounded-full bg-rose-600 hover:bg-rose-700 text-white transition-colors disabled:opacity-60"
+                      >
+                        {deletingId === file.id ? 'Deleting…' : 'Confirm'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleCancelConfirm}
+                        className="text-xs font-medium px-2.5 py-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300 transition-colors"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={(e) => handleDelete(e, file)}
+                      aria-label={`Delete ${file.original_filename}`}
+                      title="Delete file"
+                      className="p-1.5 rounded-lg text-gray-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors"
+                    >
+                      <TrashIcon className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
               </Link>
             ))}
           </div>

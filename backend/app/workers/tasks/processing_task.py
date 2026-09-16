@@ -33,15 +33,18 @@ supabase = create_client(settings.SUPABASE_URL, settings.SUPABASE_SERVICE_KEY)
 @celery_app.task(name="process_file_job")
 def process_file_job(job_id: str):
     db = SessionLocal()
+    job_repo = JobRepository(db)
+    file_repo = FileRepository(db)
+    file_id = None
     try:
-        job_repo = JobRepository(db)
-        file_repo = FileRepository(db)
         detection_repo = DetectionRepository(db)
 
         job = job_repo.get(job_id)
         job_repo.update_status(job_id, "processing")
 
         file = file_repo.get(job.file_id)
+        file_id = file.id
+        file_repo.update(file.id, {"status": "processing"})
 
         # --- Step 12: real pipeline call ---
         # Download original to a local temp path — process_video() needs a
@@ -88,6 +91,12 @@ def process_file_job(job_id: str):
 
     except Exception as e:
         job_repo.update_status(job_id, "failed", error_message=str(e))
+        # Mirror regeneration_task.py: make sure the file itself reflects
+        # the failure too, since the frontend routes anything that isn't
+        # "done"/"failed" to the processing page and would otherwise poll
+        # forever with no way to surface the error or let the user retry.
+        if file_id is not None:
+            file_repo.update(file_id, {"status": "failed"})
         raise
     finally:
         db.close()
