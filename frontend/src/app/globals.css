@@ -1,13 +1,37 @@
-﻿@import "tailwindcss";
+﻿/* frontend/src/app/globals.css */
+@import "tailwindcss";
+
+/* Register the design tokens with Tailwind v4 so classes such as
+   bg-brand-primary, text-text-secondary and border-border-subtle actually work. */
+@theme inline {
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-surface-raised: var(--bg-surface-raised);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-subtle: var(--border-subtle);
+  --color-brand-primary: var(--brand-primary);
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-rose: var(--accent-rose);
+}
+
+/* Tailwind v4 draws borders in currentColor (black) by default.
+   Make every border soft unless a border colour is set explicitly. */
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--border-subtle);
+  }
+}
 
 :root {
-  --bg-base: #FAFAFA;
+  --bg-base: #F3F6F5;
   --bg-surface: #FFFFFF;
   --bg-surface-raised: #FFFFFF;
-  --text-primary: #111318;
-  --text-secondary: #5B6270;
-  --border-subtle: #E6E8EB;
-  --brand-primary: #6D5EF6;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --border-subtle: #E7E5E4;
+  --brand-primary: #0F766E;   /* teal-700, matches the rest of the app */
   --accent-teal: #14B8A6;
   --accent-amber: #F59E0B;
   --accent-rose: #F43F5E;
@@ -20,14 +44,19 @@
   --text-primary: #F1F2F4;
   --text-secondary: #9AA1AC;
   --border-subtle: #262B33;
-  --brand-primary: #8B7CFF;
+  --brand-primary: #2DD4BF;
   --accent-teal: #2DD4BF;
   --accent-amber: #FBBF24;
   --accent-rose: #FB7185;
+}
+
+html, body {
+  min-height: 100%;
 }
 
 body {
   background-color: var(--bg-base);
   color: var(--text-primary);
   font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }

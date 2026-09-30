@@ -1,3 +1,4 @@
+// frontend/src/app/(app)/layout.js
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -19,15 +20,17 @@ export default function AppLayout({ children }) {
   }, [router]);
 
   if (!checked) {
-    return null; // brief blank render while the redirect check runs
+    // Matches the page background so there is no white flash during the redirect check.
+    return <div className="min-h-screen bg-[#F3F6F5]" aria-busy="true" />;
   }
 
   return (
-    <div className="flex min-h-screen bg-bg-base">
+    <div className="flex min-h-screen bg-[#F3F6F5]">
       <Sidebar />
-      <div className="flex-1 flex flex-col">
+      <div className="flex min-w-0 flex-1 flex-col">
         <Navbar />
-        <main className="flex-1 p-6">{children}</main>
+        {/* Pages use <PageShell>, which already adds its own padding and background. */}
+        <main className="flex-1">{children}</main>
       </div>
     </div>
   );

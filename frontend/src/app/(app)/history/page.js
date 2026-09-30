@@ -1,29 +1,21 @@
+// frontend/src/app/(app)/history/page.js
 'use client';
 
-// frontend/src/app/(app)/history/page.js
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { api } from '@/lib/api-client';
+import {
+  PageShell, PageHeader, StatusBadge, ErrorBanner, SkeletonRows, FileIcon,
+  btnPrimary, inputCls, formatDate, fileLink,
+} from '@/components/ui/primitives';
 
-const STATUS_STYLES = {
-  uploaded: 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300',
-  processing: 'bg-amber-100 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400',
-  done: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400',
-  failed: 'bg-rose-100 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400',
-};
-
-const STATUS_LABELS = {
-  uploaded: 'Queued',
-  processing: 'Processing',
-  done: 'Done',
-  failed: 'Failed',
-};
-
-function formatDate(iso) {
-  return new Date(iso).toLocaleString(undefined, {
-    year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
-  });
-}
+const FILTERS = [
+  { value: 'all', label: 'All' },
+  { value: 'done', label: 'Ready' },
+  { value: 'processing', label: 'Processing' },
+  { value: 'uploaded', label: 'Queued' },
+  { value: 'failed', label: 'Failed' },
+];
 
 export default function HistoryPage() {
   const [files, setFiles] = useState([]);
@@ -46,95 +38,94 @@ export default function HistoryPage() {
     load();
   }, []);
 
-  const filtered = useMemo(() => {
-    return files.filter((f) => {
-      const matchesSearch = f.original_filename.toLowerCase().includes(search.toLowerCase());
-      const matchesStatus = statusFilter === 'all' || f.status === statusFilter;
-      return matchesSearch && matchesStatus;
-    });
-  }, [files, search, statusFilter]);
-
-  const linkFor = (file) => {
-    if (file.status === 'done') return `/files/${file.id}/editor`;
-    if (file.status === 'failed') return `/upload`;
-    return `/files/${file.id}/processing`;
-  };
+  const filtered = useMemo(() => files.filter((f) => {
+    const matchesSearch = f.original_filename.toLowerCase().includes(search.toLowerCase());
+    const matchesStatus = statusFilter === 'all' || f.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  }), [files, search, statusFilter]);
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#0B0D10] p-6 sm:p-10 font-sans">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">History</h1>
-          <p className="text-sm text-gray-500 dark:text-[#9AA1AC]">
-            Full history of every file you've processed.
-          </p>
-        </div>
+    <PageShell>
+      <PageHeader
+        title="History"
+        subtitle="Every file you've processed."
+        action={<Link href="/upload" className={btnPrimary}>Upload file</Link>}
+      />
 
-        <div className="flex flex-col sm:flex-row gap-3 mb-6">
+      <div className="mb-5 flex flex-col gap-3 rounded-2xl border border-stone-200 bg-white p-3 shadow-sm md:flex-row md:items-center md:justify-between">
+        <div className="relative md:max-w-xs md:flex-1">
+          <svg viewBox="0 0 20 20" className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 fill-stone-400">
+            <path d="M8.5 3a5.5 5.5 0 014.4 8.8l3.6 3.6-1.1 1.1-3.6-3.6A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
           <input
-            type="text"
+            type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by filename…"
-            className="flex-1 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-gray-900 dark:text-white"
+            placeholder="Search by filename"
+            aria-label="Search by filename"
+            className={`${inputCls} pl-9`}
           />
-          <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className="rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-gray-900 dark:text-white"
-          >
-            <option value="all">All statuses</option>
-            <option value="done">Done</option>
-            <option value="processing">Processing</option>
-            <option value="uploaded">Queued</option>
-            <option value="failed">Failed</option>
-          </select>
         </div>
 
-        {error && (
-          <div className="mb-4 p-3 rounded-lg bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 text-sm">
-            {error}
-          </div>
-        )}
-
-        {loading ? (
-          <p className="text-gray-500 text-sm">Loading…</p>
-        ) : filtered.length === 0 ? (
-          <div className="bg-white dark:bg-gray-900 border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-12 text-center">
-            <p className="text-gray-500">No files match your filters.</p>
-          </div>
-        ) : (
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
-            {filtered.map((file, i) => (
-              <Link
-                key={file.id}
-                href={linkFor(file)}
-                className={`flex items-center justify-between px-5 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors ${
-                  i !== filtered.length - 1 ? 'border-b border-gray-100 dark:border-gray-800' : ''
+        <div role="tablist" aria-label="Filter by status" className="flex gap-1 overflow-x-auto rounded-xl bg-stone-100 p-1">
+          {FILTERS.map((f) => {
+            const on = statusFilter === f.value;
+            return (
+              <button
+                key={f.value}
+                role="tab"
+                aria-selected={on}
+                onClick={() => setStatusFilter(f.value)}
+                className={`whitespace-nowrap rounded-lg px-3.5 py-1.5 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 ${
+                  on ? 'bg-teal-700 font-semibold text-white shadow-sm' : 'text-stone-600 hover:bg-white hover:text-stone-900'
                 }`}
               >
-                <div className="min-w-0">
-                  <p className="font-medium text-gray-900 dark:text-white truncate">
-                    {file.original_filename}
-                  </p>
-                  <p className="text-xs text-gray-400 mt-0.5">{formatDate(file.created_at)}</p>
-                </div>
-                <span
-                  className={`ml-4 shrink-0 text-xs font-medium px-2.5 py-1 rounded-full ${
-                    STATUS_STYLES[file.status] || STATUS_STYLES.uploaded
-                  }`}
-                >
-                  {STATUS_LABELS[file.status] || file.status}
-                </span>
-              </Link>
-            ))}
-          </div>
-        )}
-
-        <p className="mt-4 text-xs text-gray-400">
-          Showing {filtered.length} of {files.length} files.
-        </p>
+                {f.label}
+              </button>
+            );
+          })}
+        </div>
       </div>
-    </div>
+
+      <ErrorBanner>{error}</ErrorBanner>
+
+      {loading ? (
+        <SkeletonRows count={6} />
+      ) : filtered.length === 0 ? (
+        <div className="rounded-2xl border-2 border-dashed border-teal-200 bg-white px-6 py-14 text-center">
+          <p className="text-base font-semibold text-stone-900">No files match</p>
+          <p className="mt-1 text-sm text-stone-500">Clear the search or pick a different status.</p>
+          {(search || statusFilter !== 'all') && (
+            <button onClick={() => { setSearch(''); setStatusFilter('all'); }} className="mt-4 text-sm font-medium text-teal-700 hover:text-teal-900">
+              Reset filters
+            </button>
+          )}
+        </div>
+      ) : (
+        <ul className="space-y-2.5">
+          {filtered.map((file) => (
+            <li key={file.id}>
+              <Link
+                href={fileLink(file)}
+                className="group flex items-center gap-4 rounded-xl border border-stone-200 bg-white px-4 py-3.5 shadow-sm transition hover:-translate-y-px hover:border-teal-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 sm:px-5"
+              >
+                <FileIcon name={file.original_filename} />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-medium text-stone-900 group-hover:text-teal-800">{file.original_filename}</p>
+                  <p className="mt-0.5 text-xs text-stone-500">{formatDate(file.created_at, true)}</p>
+                </div>
+                <StatusBadge status={file.status} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {!loading && (
+        <p className="mt-4 text-xs text-stone-500">
+          Showing {filtered.length} of {files.length} files
+        </p>
+      )}
+    </PageShell>
   );
 }
